@@ -1,0 +1,23 @@
+#include<iostream>
+#include<fstream>
+#include<string>
+using namespace std;
+int main()
+{
+ //ایجاد فایل تکست
+ ofstream MyWriteFile("filename.txt")
+ //تغییر مد نظر در فایل 
+ MyWriteFile<<"هر متن یا تغییر دلخواه";
+ //بستن فایل:فایل را میبندیم برای جلوگیری از اشغال فضای اضافی 
+ MyWriteFile.close();
+ //یک رشته متن برای خروجی 
+ string myText;
+ //خواندن از فایل تکست 
+ ifstream MyReadFile("filename.txt");
+ //از دستور while استفاده میکنیم و تابع getline() تا متن فایل خط به خط چک شود 
+ while(getline(MyReadFile,myText))
+      {
+         cout<<myText;
+      }
+  MyReadFile.close();   
+}
